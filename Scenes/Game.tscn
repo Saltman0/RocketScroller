@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjmhqcw4siqog"]
+
+[ext_resource type="PackedScene" uid="uid://4p42jnkqkplo" path="res://Scenes/Entities/Player.tscn" id="1_jar3l"]
+[ext_resource type="Script" path="res://Scripts/Game.cs" id="1_lsvam"]
+[ext_resource type="PackedScene" uid="uid://clpe83whqkp58" path="res://Scenes/Obstacles/Lasers/LaserSpawn.tscn" id="3_k01n0"]
+[ext_resource type="PackedScene" uid="uid://4tshwpsderf5" path="res://Scenes/Interfaces/GameUI.tscn" id="5_qf735"]
+[ext_resource type="AudioStream" uid="uid://piphl7003s4u" path="res://Assets/Audio/GameOver.wav" id="6_ribas"]
+[ext_resource type="PackedScene" uid="uid://cq7cj7fsqc774" path="res://Scenes/Backgrounds/DayBackground.tscn" id="7_eqxaa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrp84"]
+size = Vector2(1920, 290)
+
+[node name="Game" type="Node" node_paths=PackedStringArray("_player", "_laserSpawn", "_obstacles", "_gameUi", "_gameStartTimer", "_dayBackground", "_gameOverAudio")]
+process_mode = 1
+script = ExtResource("1_lsvam")
+_player = NodePath("Player")
+_laserSpawn = NodePath("LaserSpawn")
+_obstacles = NodePath("Obstacles")
+_gameUi = NodePath("GameUI")
+_gameStartTimer = NodePath("GameStartTimer")
+_dayBackground = NodePath("DayBackground")
+_gameOverAudio = NodePath("GameOverAudio")
+
+[node name="Player" parent="." instance=ExtResource("1_jar3l")]
+process_mode = 4
+position = Vector2(108, 752)
+
+[node name="LaserSpawn" parent="." instance=ExtResource("3_k01n0")]
+process_mode = 4
+position = Vector2(1754, 542)
+
+[node name="Obstacles" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Roof" type="StaticBody2D" parent="."]
+position = Vector2(960, 145)
+collision_layer = 4
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="RoofCollision" type="CollisionShape2D" parent="Roof"]
+shape = SubResource("RectangleShape2D_lrp84")
+
+[node name="RoofSprite" type="Polygon2D" parent="Roof"]
+color = Color(0.270588, 0.270588, 0.270588, 1)
+polygon = PackedVector2Array(-960, -145, 960, -145, 960, 145, -960, 145)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(960, 935)
+collision_layer = 4
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="GroundCollision" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_lrp84")
+
+[node name="GroundSprite" type="Polygon2D" parent="Ground"]
+color = Color(0.188235, 0.188235, 0.188235, 1)
+polygon = PackedVector2Array(-960, -145, 960, -145, 960, 145, -960, 145)
+
+[node name="GameUI" parent="." instance=ExtResource("5_qf735")]
+metadata/_edit_lock_ = true
+
+[node name="GameStartTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="DayBackground" parent="." instance=ExtResource("7_eqxaa")]
+
+[node name="GameOverAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ribas")
+volume_db = -3.0
+metadata/_edit_lock_ = true
+
+[connection signal="Crashed" from="Player" to="." method="OnPlayerCrashed"]
+[connection signal="LaserSpawned" from="LaserSpawn" to="." method="OnLaserSpawnLaserSpawned"]
+[connection signal="PauseButtonPressed" from="GameUI" to="." method="OnGameUIPauseButtonPressed "]
+[connection signal="ReplayButtonPressed" from="GameUI" to="." method="OnGameUIReplayButtonPressed"]
+[connection signal="ResumeButtonPressed" from="GameUI" to="." method="OnGameUIResumeButtonPressed"]
+[connection signal="ReturnToMainMenuButtonPressed" from="GameUI" to="." method="OnGameUIReturnToMainMenuButtonPressed"]
+[connection signal="timeout" from="GameStartTimer" to="." method="OnGameStartTimerTimeout"]

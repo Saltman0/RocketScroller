@@ -1,0 +1,17 @@
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/bin/Debug/Rocket Scroller.deps.json
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/bin/Debug/Rocket Scroller.runtimeconfig.json
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/bin/Debug/Rocket Scroller.dll
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/bin/Debug/Rocket Scroller.pdb
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/bin/Debug/GodotSharp.dll
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/bin/Debug/GodotSharpEditor.dll
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/obj/Debug/Rocket Scroller.csproj.AssemblyReference.cache
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/obj/Debug/Rocket Scroller.GeneratedMSBuildEditorConfig.editorconfig
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/obj/Debug/Rocket Scroller.AssemblyInfoInputs.cache
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/obj/Debug/Rocket Scroller.AssemblyInfo.cs
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/obj/Debug/Rocket Scroller.csproj.CoreCompileInputs.cache
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/obj/Debug/Rocket Scroller.csproj.CopyComplete
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/obj/Debug/Rocket Scroller.dll
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/obj/Debug/refint/Rocket Scroller.dll
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/obj/Debug/Rocket Scroller.pdb
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/obj/Debug/Rocket Scroller.genruntimeconfig.cache
+/home/saltman/Documents/Godot Projects/RocketScroller/.godot/mono/temp/obj/Debug/ref/Rocket Scroller.dll

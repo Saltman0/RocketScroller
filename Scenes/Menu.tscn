@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1np7uiqecgjt"]
+
+[ext_resource type="Script" path="res://Scripts/Menu.cs" id="1_nxbu8"]
+[ext_resource type="PackedScene" uid="uid://cq7cj7fsqc774" path="res://Scenes/Backgrounds/DayBackground.tscn" id="2_85iyj"]
+[ext_resource type="PackedScene" uid="uid://j2sav60fb07f" path="res://Scenes/Interfaces/MenuInterface.tscn" id="2_xlwgp"]
+
+[node name="Menu" type="Node" node_paths=PackedStringArray("_menuInterface")]
+script = ExtResource("1_nxbu8")
+_menuInterface = NodePath("MenuInterface")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_85iyj")]
+
+[node name="MenuInterface" parent="." instance=ExtResource("2_xlwgp")]
+size_flags_horizontal = 4
+
+[connection signal="ExitButtonPressed" from="MenuInterface" to="." method="OnMenuInterfaceExitButtonPressed"]
+[connection signal="PlayButtonPressed" from="MenuInterface" to="." method="OnMenuInterfacePlayButtonPressed"]

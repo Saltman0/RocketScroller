@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxquptcro2ooj"]
+
+[ext_resource type="Script" path="res://Scripts/Obstacles/Lasers/Laser.cs" id="1_1pm2t"]
+
+[node name="Laser" type="Area2D"]
+script = ExtResource("1_1pm2t")
+
+[node name="LaserSprite" type="Sprite2D" parent="."]
+
+[node name="LaserCollision" type="CollisionShape2D" parent="."]
+
+[node name="LaserTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="LaserTimer" to="." method="OnLaserTimerTimeout"]

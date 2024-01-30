@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://clpe83whqkp58"]
+
+[ext_resource type="Script" path="res://Scripts/Obstacles/Lasers/LaserSpawn.cs" id="1_3ky1r"]
+[ext_resource type="PackedScene" uid="uid://ckpa77jwjuecx" path="res://Scenes/Obstacles/Lasers/SmallLaser.tscn" id="2_3dcna"]
+[ext_resource type="PackedScene" uid="uid://dy4yom40qxjfp" path="res://Scenes/Obstacles/Lasers/MediumLaser.tscn" id="3_hufv4"]
+[ext_resource type="PackedScene" uid="uid://delv6rmsioakd" path="res://Scenes/Obstacles/Lasers/BigLaser.tscn" id="4_37myf"]
+
+[node name="LaserSpawn" type="Node2D"]
+script = ExtResource("1_3ky1r")
+_packedScenes = Array[PackedScene]([ExtResource("2_3dcna"), ExtResource("3_hufv4"), ExtResource("4_37myf")])
+
+[node name="LaserSpawnMarkerTop" type="Marker2D" parent="."]
+position = Vector2(0, -200)
+
+[node name="LaserSpawnMarkerDown" type="Marker2D" parent="."]
+position = Vector2(0, 200)
+
+[node name="LaserSpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="LaserSpawnTimer" to="." method="OnLaserSpawnTimerTimeout"]

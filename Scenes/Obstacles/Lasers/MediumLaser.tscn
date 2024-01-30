@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy4yom40qxjfp"]
+
+[ext_resource type="PackedScene" uid="uid://bxquptcro2ooj" path="res://Scenes/Obstacles/Lasers/Laser.tscn" id="1_b15yd"]
+[ext_resource type="Texture2D" uid="uid://cdrspmv2wpg3u" path="res://Assets/Arts/Lasers/BlueLaser.png" id="2_c4gpb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yga15"]
+radius = 7.0
+height = 254.0
+
+[node name="MediumLaser" instance=ExtResource("1_b15yd")]
+
+[node name="LaserSprite" parent="." index="0"]
+scale = Vector2(1, 6.81081)
+texture = ExtResource("2_c4gpb")
+
+[node name="LaserCollision" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_yga15")

@@ -1,0 +1,119 @@
+[gd_scene load_steps=2 format=3 uid="uid://4tshwpsderf5"]
+
+[ext_resource type="Script" path="res://Scripts/Interfaces/GameUI.cs" id="1_2soxm"]
+
+[node name="GameUI" type="Control" node_paths=PackedStringArray("_resumeButton", "_pauseButton", "_replayButton", "_returnToMainMenuButton", "_gameOverAndButtonsContainer", "_gameLabel", "_gameStartLabel", "_scoreLabel", "_bestScoreNumber")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2soxm")
+_resumeButton = NodePath("TopContainer/ResumeAndPauseButtonsContainer/ResumeButton")
+_pauseButton = NodePath("TopContainer/ResumeAndPauseButtonsContainer/PauseButton")
+_replayButton = NodePath("GameOverAndButtonsContainer/ReplayButton")
+_returnToMainMenuButton = NodePath("GameOverAndButtonsContainer/ReturnToMainMenuButton")
+_gameOverAndButtonsContainer = NodePath("GameOverAndButtonsContainer")
+_gameLabel = NodePath("GameOverAndButtonsContainer/GameLabel")
+_gameStartLabel = NodePath("GameStartLabel")
+_scoreLabel = NodePath("TopContainer/ScoreLabel")
+_bestScoreNumber = NodePath("TopContainer/BestScoreContainer/BestScoreNumber")
+
+[node name="TopContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="BestScoreContainer" type="HBoxContainer" parent="TopContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="BestScoreLabel" type="Label" parent="TopContainer/BestScoreContainer"]
+layout_mode = 2
+text = "Best score :"
+
+[node name="BestScoreNumber" type="Label" parent="TopContainer/BestScoreContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="ScoreLabel" type="Label" parent="TopContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "0"
+horizontal_alignment = 1
+
+[node name="ResumeAndPauseButtonsContainer" type="CenterContainer" parent="TopContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="ResumeButton" type="Button" parent="TopContainer/ResumeAndPauseButtonsContainer"]
+process_mode = 2
+visible = false
+layout_mode = 2
+text = "Resume
+"
+
+[node name="PauseButton" type="Button" parent="TopContainer/ResumeAndPauseButtonsContainer"]
+layout_mode = 2
+text = "Pause"
+
+[node name="GameOverAndButtonsContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -52.5
+offset_right = 87.0
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameLabel" type="Label" parent="GameOverAndButtonsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="ReplayButton" type="Button" parent="GameOverAndButtonsContainer"]
+process_mode = 3
+layout_mode = 2
+text = "Replay"
+
+[node name="ReturnToMainMenuButton" type="Button" parent="GameOverAndButtonsContainer"]
+process_mode = 3
+layout_mode = 2
+text = "Return to main menu"
+
+[node name="GameStartLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.5
+offset_top = -21.0
+offset_right = 85.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Ready... fly !"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="TopContainer/ResumeAndPauseButtonsContainer/ResumeButton" to="." method="OnResumeButtonPressed"]
+[connection signal="pressed" from="TopContainer/ResumeAndPauseButtonsContainer/PauseButton" to="." method="OnPauseButtonPressed"]
+[connection signal="pressed" from="GameOverAndButtonsContainer/ReplayButton" to="." method="OnReplayButtonPressed"]
+[connection signal="pressed" from="GameOverAndButtonsContainer/ReturnToMainMenuButton" to="." method="OnReturnToMainMenuButtonPressed"]
